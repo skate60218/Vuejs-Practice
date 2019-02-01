@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sam Vue Starter</title>
+    <link rel="stylesheet" type="text/css" href="sam_style.css">
+</head>
+
+<body>
+    <h1>Hello Vue!</h1>
+    <br>
+    This is the first practice app of vue created by <a href="https://medium.com/@ss90530tw">Sam</a> with the docs here:<a href="https://cn.vuejs.org/v2/guide/index.html">Vue.js</a>
+    <br><br>
+    <h2>Lesson one</h2>
+    <ul>
+        <li>
+        	<h3>
+        		<a href="https://vuejs.org/v2/guide/index.html#Declarative-Rendering">
+        			Declarative Rendering
+        		</a>
+        	</h3>
+        </li>
+        <div id="app">
+            <ol>
+                <li>
+                    {{message}}
+                </li>
+                <li>
+                    <div class="tst_v_bind">
+                        <span v-bind:title="v_bind_message">
+		            		Hover your mouse over me for a few seconds
+		    				to see my dynamically bound title!
+		            	</span>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <li>
+        	<h3>
+        		<a href="https://vuejs.org/v2/guide/#Conditionals-and-Loops">
+        			Conditionals and Loops
+        		</a>
+        	</h3>
+        </li>
+        <div id="CnL">
+            <ol>
+                <li>
+                    <div class="tst_v_if">
+                    	<transition name="fade">
+                        	<span v-if="seen">Now you see me</span>
+                        </transition>
+                        <br>
+                        <button v-bind:title="btn_bind" onclick="tog_v_if()">toggle the text</button>
+                        <a href="https://vuejs.org/v2/guide/transitions.html">see more about transition...</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="tst_v_for">
+                    	showing v-for effect...
+                    	<ul>
+                    		<li v-for="todo in sam_todo">
+                    			{{todo.text}}
+                    		</li>
+                    	</ul>
+                    	<button v-bind:title="btn_for" onclick="push_v_for()">add to list</button>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <li>
+        	<h3>
+        		<a href="https://vuejs.org/v2/guide/#Handling-User-Input">
+        			Handling User Input
+        		</a>
+        	</h3>
+        </li>
+        <div id="HUI">
+            <ol>
+                <li>
+                    <div class="tst_v_onclick">
+                    		{{v_onclick_message}}
+                    		<br>
+                        	<button v-bind:title="btn_bind" v-on:click="reverseMessage">toggle the text</button>
+                        <a href="https://vuejs.org/v2/guide/transitions.html">see more about transition...</a>
+                    </div>
+                </li>
+            </ol>
+            <ol>
+            	<li>
+            		<div class ="tst_v_model">
+            			{{v_model_message}}
+            			<br>
+            			<input v-model="v_model_message">            			
+            		</div>
+            			
+            	</li>
+            </ol>
+        </div>
+
+        <li>
+        	<h3>
+        		<a href="https://vuejs.org/v2/guide/#Composing-with-Components">
+        			Composing with Components
+        		</a>
+        	</h3>
+        </li>
+        <div id="CwC">
+            <ol>
+                <todo-item
+			      v-for="item in groceryList"
+			      v-bind:todo="item"
+			      v-bind:key="item.id"
+			    ></todo-item>
+            </ol>
+        </div>
+    </ul>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script src="starter_vue.js"></script>
+</body>
+
+</html>
